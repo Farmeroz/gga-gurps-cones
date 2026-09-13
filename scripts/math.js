@@ -6,10 +6,10 @@
  * @returns {number} Full cone angle in degrees.
  */
 export function calculateConeAngle(maximumRangeYards, maximumWidthYards) {
-  assertPositiveFinite(maximumRangeYards, "maximumRangeYards");
-  assertPositiveFinite(maximumWidthYards, "maximumWidthYards");
+  assertPositiveFinite(maximumRangeYards, 'maximumRangeYards');
+  assertPositiveFinite(maximumWidthYards, 'maximumWidthYards');
 
-  return 2 * Math.atan(maximumWidthYards / (2 * maximumRangeYards)) * 180 / Math.PI;
+  return (2 * Math.atan(maximumWidthYards / (2 * maximumRangeYards)) * 180) / Math.PI;
 }
 
 /**
@@ -22,10 +22,10 @@ export function calculateConeAngle(maximumRangeYards, maximumWidthYards) {
  * @returns {number} Effective maximum width in yards.
  */
 export function resolveMaximumWidth(maximumRangeYards, maximumWidthYards, widthUnspecified) {
-  assertPositiveFinite(maximumRangeYards, "maximumRangeYards");
+  assertPositiveFinite(maximumRangeYards, 'maximumRangeYards');
   if (widthUnspecified) return maximumRangeYards;
 
-  assertPositiveFinite(maximumWidthYards, "maximumWidthYards");
+  assertPositiveFinite(maximumWidthYards, 'maximumWidthYards');
   return maximumWidthYards;
 }
 
@@ -38,26 +38,26 @@ export function resolveMaximumWidth(maximumRangeYards, maximumWidthYards, widthU
  * @returns {{value: number, recognised: boolean, canonicalUnit: string}}
  */
 export function yardsToSceneUnits(yards, sceneUnit) {
-  assertPositiveFinite(yards, "yards");
+  assertPositiveFinite(yards, 'yards');
 
   const unit = normaliseUnit(sceneUnit);
   const conversion = UNIT_CONVERSIONS[unit];
   if (!conversion) {
-    return { value: yards, recognised: false, canonicalUnit: unit || "unit" };
+    return { value: yards, recognised: false, canonicalUnit: unit || 'unit' };
   }
 
   return {
     value: yards * conversion.factor,
     recognised: true,
-    canonicalUnit: conversion.canonicalUnit
+    canonicalUnit: conversion.canonicalUnit,
   };
 }
 
 function normaliseUnit(unit) {
-  return String(unit ?? "")
+  return String(unit ?? '')
     .trim()
     .toLowerCase()
-    .replaceAll(".", "");
+    .replaceAll('.', '');
 }
 
 function assertPositiveFinite(value, name) {
@@ -67,32 +67,32 @@ function assertPositiveFinite(value, name) {
 }
 
 const UNIT_CONVERSIONS = Object.freeze({
-  yd: { factor: 1, canonicalUnit: "yd" },
-  yds: { factor: 1, canonicalUnit: "yd" },
-  yard: { factor: 1, canonicalUnit: "yd" },
-  yards: { factor: 1, canonicalUnit: "yd" },
-  ft: { factor: 3, canonicalUnit: "ft" },
-  foot: { factor: 3, canonicalUnit: "ft" },
-  feet: { factor: 3, canonicalUnit: "ft" },
-  in: { factor: 36, canonicalUnit: "in" },
-  inch: { factor: 36, canonicalUnit: "in" },
-  inches: { factor: 36, canonicalUnit: "in" },
-  m: { factor: 0.9144, canonicalUnit: "m" },
-  metre: { factor: 0.9144, canonicalUnit: "m" },
-  metres: { factor: 0.9144, canonicalUnit: "m" },
-  meter: { factor: 0.9144, canonicalUnit: "m" },
-  meters: { factor: 0.9144, canonicalUnit: "m" },
-  cm: { factor: 91.44, canonicalUnit: "cm" },
-  centimetre: { factor: 91.44, canonicalUnit: "cm" },
-  centimetres: { factor: 91.44, canonicalUnit: "cm" },
-  centimeter: { factor: 91.44, canonicalUnit: "cm" },
-  centimeters: { factor: 91.44, canonicalUnit: "cm" },
-  km: { factor: 0.0009144, canonicalUnit: "km" },
-  kilometre: { factor: 0.0009144, canonicalUnit: "km" },
-  kilometres: { factor: 0.0009144, canonicalUnit: "km" },
-  kilometer: { factor: 0.0009144, canonicalUnit: "km" },
-  kilometers: { factor: 0.0009144, canonicalUnit: "km" },
-  mi: { factor: 1 / 1760, canonicalUnit: "mi" },
-  mile: { factor: 1 / 1760, canonicalUnit: "mi" },
-  miles: { factor: 1 / 1760, canonicalUnit: "mi" }
+  yd: { factor: 1, canonicalUnit: 'yd' },
+  yds: { factor: 1, canonicalUnit: 'yd' },
+  yard: { factor: 1, canonicalUnit: 'yd' },
+  yards: { factor: 1, canonicalUnit: 'yd' },
+  ft: { factor: 3, canonicalUnit: 'ft' },
+  foot: { factor: 3, canonicalUnit: 'ft' },
+  feet: { factor: 3, canonicalUnit: 'ft' },
+  in: { factor: 36, canonicalUnit: 'in' },
+  inch: { factor: 36, canonicalUnit: 'in' },
+  inches: { factor: 36, canonicalUnit: 'in' },
+  m: { factor: 0.9144, canonicalUnit: 'm' },
+  metre: { factor: 0.9144, canonicalUnit: 'm' },
+  metres: { factor: 0.9144, canonicalUnit: 'm' },
+  meter: { factor: 0.9144, canonicalUnit: 'm' },
+  meters: { factor: 0.9144, canonicalUnit: 'm' },
+  cm: { factor: 91.44, canonicalUnit: 'cm' },
+  centimetre: { factor: 91.44, canonicalUnit: 'cm' },
+  centimetres: { factor: 91.44, canonicalUnit: 'cm' },
+  centimeter: { factor: 91.44, canonicalUnit: 'cm' },
+  centimeters: { factor: 91.44, canonicalUnit: 'cm' },
+  km: { factor: 0.0009144, canonicalUnit: 'km' },
+  kilometre: { factor: 0.0009144, canonicalUnit: 'km' },
+  kilometres: { factor: 0.0009144, canonicalUnit: 'km' },
+  kilometer: { factor: 0.0009144, canonicalUnit: 'km' },
+  kilometers: { factor: 0.0009144, canonicalUnit: 'km' },
+  mi: { factor: 1 / 1760, canonicalUnit: 'mi' },
+  mile: { factor: 1 / 1760, canonicalUnit: 'mi' },
+  miles: { factor: 1 / 1760, canonicalUnit: 'mi' },
 });
