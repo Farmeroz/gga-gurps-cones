@@ -1,0 +1,10 @@
+[
+  "LICENSE",
+  "README.md",
+  "lang/en.json",
+  "module.json",
+  "scripts/log.mjs",
+  "scripts/math.js",
+  "scripts/module.js",
+  "styles/gurps-cones.css"
+]

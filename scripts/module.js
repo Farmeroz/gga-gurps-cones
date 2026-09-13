@@ -1,3 +1,4 @@
+import * as log from './log.mjs';
 import { calculateConeAngle, resolveMaximumWidth, yardsToSceneUnits } from './math.js';
 
 const MODULE_ID = 'gga-gurps-cones';
@@ -107,7 +108,7 @@ async function openConeDialog() {
       angle,
     });
   } catch (error) {
-    console.error(`${MODULE_ID} | Failed to create a GURPS cone Region.`, error);
+    log.error('Failed to create a GURPS cone Region.', error);
     ui.notifications.error(localise('Errors.CreationFailed'));
   } finally {
     coneDialogOpen = false;
