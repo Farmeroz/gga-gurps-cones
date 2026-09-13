@@ -25,12 +25,8 @@
       }
     ]
   },
-  "esmodules": [
-    "scripts/module.js"
-  ],
-  "styles": [
-    "styles/gurps-cones.css"
-  ],
+  "esmodules": ["scripts/module.js"],
+  "styles": ["styles/gurps-cones.css"],
   "languages": [
     {
       "lang": "en",
