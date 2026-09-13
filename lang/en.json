@@ -1,0 +1,36 @@
+{
+  "GGA_GURPS_CONES": {
+    "Controls": {
+      "Create": "Create GURPS Cone"
+    },
+    "Dialog": {
+      "Title": "Create GURPS Cone",
+      "Introduction": "Enter the cone's GURPS maximum range and maximum width.  The Foundry angle is calculated automatically.",
+      "MaximumRange": "Maximum range",
+      "MaximumWidth": "Maximum width",
+      "Yards": "yd",
+      "WidthUnspecified": "Maximum width is unspecified",
+      "WidthUnspecifiedHint": "Uses the GURPS default spread of one yard per yard of range.",
+      "CalculatedAngle": "Calculated FVTT angle",
+      "SceneUnitHint": "The current Scene uses {unit}; the range will be converted automatically where possible.",
+      "SceneUnitsFallback": "scene units",
+      "CoverageHint": "The Region will use Covered Grid Spaces, so the pointed geometric origin does not exclude its starting grid space.",
+      "Place": "Place Cone"
+    },
+    "Placement": {
+      "Instructions": "Move the pointer to the cone origin, use the mouse wheel to rotate, and left-click to place.  Right-click or press Escape to cancel."
+    },
+    "Region": {
+      "NameSpecified": "GURPS Cone: {range} yd × {width} yd",
+      "NameUnspecified": "GURPS Cone: {range} yd, default spread"
+    },
+    "Warnings": {
+      "NoScene": "Open a Scene before creating a GURPS cone.",
+      "Paused": "Players cannot place Regions while the game is paused.",
+      "UnknownUnits": "The Scene unit “{unit}” is not recognised.  Treating one yard as one Scene unit."
+    },
+    "Errors": {
+      "CreationFailed": "The GURPS cone could not be created.  See the console for details."
+    }
+  }
+}
