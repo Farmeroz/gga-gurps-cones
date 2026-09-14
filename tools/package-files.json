@@ -3,8 +3,10 @@
   "README.md",
   "lang/en.json",
   "module.json",
+  "scripts/help.mjs",
   "scripts/log.mjs",
   "scripts/math.js",
   "scripts/module.js",
+  "scripts/tooltip-engine.mjs",
   "styles/gurps-cones.css"
 ]

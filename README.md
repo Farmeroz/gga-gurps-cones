@@ -44,3 +44,7 @@ Rule reference: _GURPS Basic Set: Campaigns_, p. 413.
 Report problems through [GitHub Issues](https://github.com/Farmeroz/gga-gurps-cones/issues). Released under the [MIT licence](LICENSE).
 
 GURPS is a trademark of Steve Jackson Games. This unofficial module is not affiliated with or endorsed by Steve Jackson Games, Foundry Gaming LLC, or the GURPS Game Aid maintainers.
+
+## Help tooltips
+
+Hover over a control or focus it with the keyboard for a short explanation. Press Escape to dismiss the help. Under **Configure Settings → Module Settings → GGA: GURPS Cone Regions**, turn off **Show help tooltips** to hide optional help on your client. Labels, settings descriptions, and important notices remain visible. Other users keep their own preference.
