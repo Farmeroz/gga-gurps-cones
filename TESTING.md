@@ -1,5 +1,11 @@
 # Testing
 
+## Saved-shape checks
+
+Automated tests exercise current edited geometry, yards/feet/metres conversion, fresh placement without old scene state, cone/circle mode roundtrips, permissions, cancellation, unsupported shapes/units and generated macro replay. Foundry placement and Macro documents are mocked.
+
+Live check: save during cone creation and from an existing edited circle; drag the macros to the hotbar. Reuse on a differently scaled scene and confirm physical size, rotation/placement and cancellation. Check the current level and user ownership, and that old Region behaviours are not copied. Send the placed shape to Manual Damage and load a saved area-damage profile; review recipients, radius and distances before preparing. Test with a connected player who can create/use script macros and another without that permission. These connected-world results still require live verification.
+
 Start with the setup commands in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Automated coverage

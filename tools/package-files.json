@@ -9,5 +9,6 @@
   "scripts/module.js",
   "scripts/tooltip-engine.mjs",
   "styles/gurps-cones.css",
-  "scripts/area.js"
+  "scripts/area.js",
+  "scripts/profiles.js"
 ]

@@ -1,4 +1,22 @@
-# GGA: GURPS Cone Regions — areas 0.2.0
+# GGA: GURPS Cone Regions — saved shapes 0.3.0
+
+## Save and reuse shapes
+
+While creating a cone or circle, expand **Reusable profile** and tick **Save these settings as a macro**. After confirming dimensions, name the macro. Alternatively, select **Save shape as macro** (floppy-disk icon) in Region Controls and choose an existing cone or circle. The current edited geometry is saved, so resizing a Region before saving is supported.
+
+Find the result in Foundry's **Macros** directory and drag it onto your hotbar. Each save creates a new script macro; names do not overwrite existing macros. Foundry's script-macro creation and execution permissions apply. Running it starts normal placement on the current scene; place and rotate a fresh cone or place a fresh circle. Escape cancels placement.
+
+Profiles remember cone range/width or circle radius in **yards**, the chosen name, and a circle's **Uniform AoE** or **Explosion** mode. Recognised scene units and the current grid scale convert those physical dimensions on reuse. Current scene level and current user's normal Region ownership are used. Unknown units produce an error instead of guessing a physical size.
+
+Positions, orientation, targets, old ownership, elevation restrictions and Region behaviours are not copied. Single solid cones/circles are supported; polygons, holes and multi-shape Regions are not. An unspecified-width cone saves its resolved physical width. Damage remains a separate Manual Damage profile.
+
+For a repeatable attack: **run shape macro → place → Send area to Manual Damage → run saved area-damage macro → review and prepare → Review in ADD**. Manual Damage **0.5.0 or later** can load a saved area profile into that fresh helper. Check coverage and radius against the attack; saving or placing shapes never applies damage. GURPS 4e cone and area rules remain unchanged (B413–414).
+
+**Stable install/update manifest:**
+
+```text
+https://github.com/Farmeroz/gga-gurps-cones/releases/latest/download/module.json
+```
 
 This Foundry VTT module creates native cone Regions from the two values used by GURPS: maximum range and maximum width. It calculates the required Foundry angle, converts the range to the Scene's distance unit, and starts Foundry's normal Region placement workflow.
 
@@ -6,6 +24,8 @@ This Foundry VTT module creates native cone Regions from the two values used by 
 
 - Foundry Virtual Tabletop v14
 - GURPS Game Aid (GGA) v0.18 or later
+
+**Moving from the rc test build:** install with the stable manifest below, confirm **0.3.0** in Manage Modules, and reload connected clients. Saved rc shape macros remain compatible.
 
 ## Install or update
 
