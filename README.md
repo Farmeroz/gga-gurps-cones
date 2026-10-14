@@ -1,4 +1,4 @@
-# GGA: GURPS Cone Regions — saved shapes 0.3.0-rc1
+# GGA: GURPS Cone Regions — saved shapes 0.3.0
 
 ## Save and reuse shapes
 
@@ -10,12 +10,12 @@ Profiles remember cone range/width or circle radius in **yards**, the chosen nam
 
 Positions, orientation, targets, old ownership, elevation restrictions and Region behaviours are not copied. Single solid cones/circles are supported; polygons, holes and multi-shape Regions are not. An unspecified-width cone saves its resolved physical width. Damage remains a separate Manual Damage profile.
 
-For a repeatable attack: **run shape macro → place → Send area to Manual Damage → run saved area-damage macro → review and prepare → Review in ADD**. Manual Damage **0.5.0-rc1 or later** can load a saved area profile into that fresh helper. Check coverage and radius against the attack; saving or placing shapes never applies damage. GURPS 4e cone and area rules remain unchanged (B413–414).
+For a repeatable attack: **run shape macro → place → Send area to Manual Damage → run saved area-damage macro → review and prepare → Review in ADD**. Manual Damage **0.5.0 or later** can load a saved area profile into that fresh helper. Check coverage and radius against the attack; saving or placing shapes never applies damage. GURPS 4e cone and area rules remain unchanged (B413–414).
 
-**Test build manifest (stable/latest is unchanged):**
+**Stable install/update manifest:**
 
 ```text
-https://github.com/Farmeroz/gga-gurps-cones/releases/download/v0.3.0-rc1/module.json
+https://github.com/Farmeroz/gga-gurps-cones/releases/latest/download/module.json
 ```
 
 This Foundry VTT module creates native cone Regions from the two values used by GURPS: maximum range and maximum width. It calculates the required Foundry angle, converts the range to the Scene's distance unit, and starts Foundry's normal Region placement workflow.
@@ -24,6 +24,8 @@ This Foundry VTT module creates native cone Regions from the two values used by 
 
 - Foundry Virtual Tabletop v14
 - GURPS Game Aid (GGA) v0.18 or later
+
+**Moving from the rc test build:** install with the stable manifest below, confirm **0.3.0** in Manage Modules, and reload connected clients. Saved rc shape macros remain compatible.
 
 ## Install or update
 
