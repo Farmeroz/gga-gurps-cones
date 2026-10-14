@@ -1,3 +1,4 @@
+import { openAreaDialog, openSendDialog, sendRegion } from './area.js';
 import * as log from './log.mjs';
 import { calculateConeAngle, resolveMaximumWidth, yardsToSceneUnits } from './math.js';
 
@@ -16,6 +17,9 @@ Hooks.once('init', () => {
   const module = game.modules.get(MODULE_ID);
   if (module) {
     module.api = Object.freeze({
+      openAreaDialog,
+      openSendDialog,
+      sendRegion,
       calculateConeAngle,
       openConeDialog,
     });
@@ -34,6 +38,24 @@ Hooks.on('getSceneControlButtons', (controls) => {
     button: true,
     visible: true,
     onChange: () => void openConeDialog(),
+  };
+  regions.tools.gurpsArea = {
+    name: 'gurpsArea',
+    title: 'Create GURPS area / blast',
+    icon: 'fa-solid fa-circle',
+    order: nextToolOrder(regions.tools),
+    button: true,
+    visible: true,
+    onChange: () => void openAreaDialog(),
+  };
+  regions.tools.gurpsAreaDamage = {
+    name: 'gurpsAreaDamage',
+    title: 'Send area to Manual Damage',
+    icon: 'fa-solid fa-calculator',
+    order: nextToolOrder(regions.tools),
+    button: true,
+    visible: true,
+    onChange: () => void openSendDialog(),
   };
 });
 
