@@ -1,4 +1,4 @@
-# GGA: GURPS Cone Regions — areas test build 0.2.0-rc1
+# GGA: GURPS Cone Regions — areas 0.2.0
 
 This Foundry VTT module creates native cone Regions from the two values used by GURPS: maximum range and maximum width. It calculates the required Foundry angle, converts the range to the Scene's distance unit, and starts Foundry's normal Region placement workflow.
 
@@ -25,7 +25,7 @@ Region Controls now has **Create GURPS area / blast** and **Send area to Manual 
 2. Move or edit the Region normally, then choose **Send area to Manual Damage**. Select the Region and, for an elevated blast, expand **Elevation and coverage** to set centre height in scene units (default 0).
 3. Review the suggested recipients in Manual Damage, enter fixed damage or dice, **Prepare damage**, then **Review in ADD**. No token is damaged by placement or handoff.
 
-Requires Manual Damage **0.4.0-rc1** or later for handoff. The existing cone placement remains usable without Manual Damage. The module ID remains unchanged.
+Requires Manual Damage **0.4.0** or later for handoff. The existing cone placement remains usable without Manual Damage. The module ID remains unchanged.
 
 Foundry's Region membership supplies the candidate tokens, using its covered token spaces and Region restrictions. This handles large tokens using Foundry's membership rules; it is not a promise that every visual sliver of overlap counts. Hidden tokens are not exposed to players. Manual Damage enforces GM/ownership permissions and linked-actor deduplication. Review partial overlap, cover, line of effect and dodge-and-drop; walls do not automatically remove recipients.
 
@@ -33,7 +33,7 @@ Uniform AoE and cones have no falloff. Explosions use GURPS 4e B414 falloff in M
 
 The handoff uses a snapshot. Moving the Region or tokens requires an explicit **Refresh template** in Manual Damage, discarding any prepared results first. Manual changes are not silently overwritten.
 
-Test manifest: https://github.com/Farmeroz/gga-gurps-cones/releases/download/v0.2.0-rc1/module.json
+Stable manifest: https://github.com/Farmeroz/gga-gurps-cones/releases/latest/download/module.json
 
 ## Use
 
