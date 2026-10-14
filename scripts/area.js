@@ -1,3 +1,4 @@
+import { saveShapeProfile } from './profiles.js';
 import { yardsToSceneUnits } from './math.js';
 const ID = 'gga-gurps-cones';
 const esc = (value) =>
@@ -85,7 +86,7 @@ export async function openAreaDialog() {
     const input = await foundry.applications.api.DialogV2.input({
       window: { title: 'Create GURPS area' },
       position: { width: 420 },
-      content: `<p>Place a circular area, then use <strong>Send area to Manual Damage</strong> to review its recipients.</p><label>Effect<select name="mode"><option value="uniform">Uniform AoE — no falloff</option><option value="explosion">Explosion — distance falloff</option></select></label><label>Radius (yards)<input name="radius" type="number" min="0.01" step="any" value="3" required></label><details><summary>Which radius?</summary><p>Use the listed radius for an area effect. Ordinary GURPS 4e blast radius is 2 × damage dice × multiplier (B414). This marker selects candidates; it does not roll or apply damage.</p></details>`,
+      content: `<p>Place a circular area, then use <strong>Send area to Manual Damage</strong> to review its recipients.</p><label>Effect<select name="mode"><option value="uniform">Uniform AoE — no falloff</option><option value="explosion">Explosion — distance falloff</option></select></label><label>Radius (yards)<input name="radius" type="number" min="0.01" step="any" value="3" required></label><details><summary>Which radius?</summary><p>Use the listed radius for an area effect. Ordinary GURPS 4e blast radius is 2 × damage dice × multiplier (B414). This marker selects candidates; it does not roll or apply damage.</p></details><details><summary>Reusable profile</summary><label><input type="checkbox" name="saveProfile"> Save these settings as a macro</label></details>`,
       ok: { label: 'Place area', icon: 'fa-solid fa-location-dot' },
     });
     if (!input) return;
@@ -101,6 +102,14 @@ export async function openAreaDialog() {
       throw new Error('The scene has no usable distance scale.');
     if (!['uniform', 'explosion'].includes(input.mode))
       throw new Error('Choose Uniform AoE or Explosion.');
+    if (input.saveProfile)
+      await saveShapeProfile({
+        version: 1,
+        kind: 'circle',
+        name: input.mode === 'explosion' ? 'Explosion' : 'Uniform AoE',
+        radius: Number(input.radius),
+        mode: input.mode,
+      });
     await canvas.regions.placeRegion(
       {
         name: `${input.mode === 'explosion' ? 'Explosion' : 'Uniform AoE'} — ${Number(input.radius)} yd radius`,

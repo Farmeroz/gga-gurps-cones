@@ -1,3 +1,4 @@
+import { saveShapeProfile, placeShapeProfile, openSaveShapeDialog } from './profiles.js';
 import { openAreaDialog, openSendDialog, sendRegion } from './area.js';
 import * as log from './log.mjs';
 import { calculateConeAngle, resolveMaximumWidth, yardsToSceneUnits } from './math.js';
@@ -17,6 +18,8 @@ Hooks.once('init', () => {
   const module = game.modules.get(MODULE_ID);
   if (module) {
     module.api = Object.freeze({
+      placeShapeProfile,
+      openSaveShapeDialog,
       openAreaDialog,
       openSendDialog,
       sendRegion,
@@ -47,6 +50,15 @@ Hooks.on('getSceneControlButtons', (controls) => {
     button: true,
     visible: true,
     onChange: () => void openAreaDialog(),
+  };
+  regions.tools.gurpsSaveShape = {
+    name: 'gurpsSaveShape',
+    title: 'Save shape as macro',
+    icon: 'fa-solid fa-floppy-disk',
+    order: nextToolOrder(regions.tools),
+    button: true,
+    visible: true,
+    onChange: () => void openSaveShapeDialog(),
   };
   regions.tools.gurpsAreaDamage = {
     name: 'gurpsAreaDamage',
@@ -122,6 +134,14 @@ async function openConeDialog() {
     );
     const angle = calculateConeAngle(maximumRangeYards, maximumWidthYards);
 
+    if (result.saveProfile)
+      await saveShapeProfile({
+        version: 1,
+        kind: 'cone',
+        name: 'GURPS cone',
+        range: maximumRangeYards,
+        width: maximumWidthYards,
+      });
     await rememberInputs(maximumRangeYards, enteredMaximumWidthYards, widthUnspecified);
     await placeConeRegion({
       maximumRangeYards,
@@ -177,7 +197,7 @@ function buildDialogContent() {
       </div>
 
       <p class="hint">${format('Dialog.SceneUnitHint', { unit: sceneUnit })}</p>
-      <p class="hint">${localise('Dialog.CoverageHint')}</p>
+      <p class="hint">${localise('Dialog.CoverageHint')}</p><details><summary>Reusable profile</summary><label><input type="checkbox" name="saveProfile"> Save these settings as a macro</label></details>
     </div>
   `;
 }

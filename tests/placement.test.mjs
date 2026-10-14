@@ -70,7 +70,9 @@ test('init exposes the API and places the tool after existing region controls', 
   hooks.get('getSceneControlButtons')(controls);
   assert.equal(controls.regions.tools.gurpsCone.order, 9);
   assert.equal(controls.regions.tools.gurpsArea.order, 10);
-  assert.equal(controls.regions.tools.gurpsAreaDamage.order, 11);
+  assert.equal(controls.regions.tools.gurpsSaveShape.order, 11);
+  assert.equal(controls.regions.tools.gurpsAreaDamage.order, 12);
+  assert.equal(typeof controls.regions.tools.gurpsSaveShape.onChange, 'function');
   assert.equal(typeof controls.regions.tools.gurpsArea.onChange, 'function');
   assert.equal(typeof controls.regions.tools.gurpsAreaDamage.onChange, 'function');
   assert.doesNotThrow(() => hooks.get('getSceneControlButtons')({}));
