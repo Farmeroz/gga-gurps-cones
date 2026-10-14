@@ -69,6 +69,10 @@ test('init exposes the API and places the tool after existing region controls', 
   const controls = { regions: { tools: { select: { order: 3 }, delete: { order: 8 } } } };
   hooks.get('getSceneControlButtons')(controls);
   assert.equal(controls.regions.tools.gurpsCone.order, 9);
+  assert.equal(controls.regions.tools.gurpsArea.order, 10);
+  assert.equal(controls.regions.tools.gurpsAreaDamage.order, 11);
+  assert.equal(typeof controls.regions.tools.gurpsArea.onChange, 'function');
+  assert.equal(typeof controls.regions.tools.gurpsAreaDamage.onChange, 'function');
   assert.doesNotThrow(() => hooks.get('getSceneControlButtons')({}));
 });
 test('placement preserves coverage, rotation, level, and user ownership', async () => {

@@ -8,5 +8,6 @@
   "scripts/math.js",
   "scripts/module.js",
   "scripts/tooltip-engine.mjs",
-  "styles/gurps-cones.css"
+  "styles/gurps-cones.css",
+  "scripts/area.js"
 ]
